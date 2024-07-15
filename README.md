@@ -1,5 +1,5 @@
 ```
-node src/index.js
+rails s
 ```
 ```
 REST Client requests:

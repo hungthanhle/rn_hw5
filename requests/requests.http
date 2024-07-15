@@ -1,4 +1,4 @@
-POST http://localhost:3000/api/v1/bookings
+POST http://localhost:3000/bookings
 Content-type: application/json
 
 {

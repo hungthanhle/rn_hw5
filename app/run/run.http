@@ -1,0 +1,71 @@
+# CHAPTER 1. 
+# ab -n 40 -c 20 http://localhost:3000/
+
+# I, [2024-02-02T16:35:33.824342 #48950]  INFO -- : [99168d19-ce31-47b0-81a6-50e76e01ba9a] Started GET "/" for 127.0.0.1 at 2024-02-02 16:35:33 +0700
+# I, [2024-02-02T16:35:33.828097 #48950]  INFO -- : [d0d4ea25-8f32-467c-b91c-8d8f19ca59c1] Processing by Rails::WelcomeController#index as */*
+# I, [2024-02-02T16:35:33.828738 #48950]  INFO -- : [b62fb207-5068-4903-95ff-9dba600a3165] Started GET "/" for 127.0.0.1 at 2024-02-02 16:35:33 +0700
+# I, [2024-02-02T16:35:33.829214 #48950]  INFO -- : [d0d4ea25-8f32-467c-b91c-8d8f19ca59c1]   Rendered /home/bunbu/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 15)
+# I, [2024-02-02T16:35:33.829907 #48950]  INFO -- : [6a51063e-a8d7-4541-b715-19d3408701ea] Processing by Rails::WelcomeController#index as */*
+# I, [2024-02-02T16:35:33.830286 #48950]  INFO -- : [d0d4ea25-8f32-467c-b91c-8d8f19ca59c1] Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 849)
+
+
+# I, [2024-02-02T16:35:33.830719 #48950]  INFO -- : [6a51063e-a8d7-4541-b715-19d3408701ea]   Rendered /home/bunbu/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 15)
+# I, [2024-02-02T16:35:33.831233 #48950]  INFO -- : [6a51063e-a8d7-4541-b715-19d3408701ea] Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 602)
+
+
+# I, [2024-02-02T16:35:33.834281 #48950]  INFO -- : [f9820bbb-a3aa-4450-8abd-430577adbbd9] Started GET "/" for 127.0.0.1 at 2024-02-02 16:35:33 +0700
+# I, [2024-02-02T16:35:33.835971 #48950]  INFO -- : [99168d19-ce31-47b0-81a6-50e76e01ba9a] Processing by Rails::WelcomeController#index as */*
+# I, [2024-02-02T16:35:33.836545 #48950]  INFO -- : [99168d19-ce31-47b0-81a6-50e76e01ba9a]   Rendered /home/bunbu/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 15)
+# I, [2024-02-02T16:35:33.836757 #48950]  INFO -- : [99168d19-ce31-47b0-81a6-50e76e01ba9a] Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 291)
+
+# PID không đổi # ở trên là request 99168d19-ce31-47b0-81a6-50e76e01ba9a thực hiện
+
+# CHAPTER 2. MÁY LOCAL
+# 
+# ps aux | grep puma
+# hung       27604  0.6  1.7 955932 128552 pts/1   Sl+  00:13   0:02 puma 5.6.8 (tcp://localhost:3000) [learn_rails]
+# 
+# First request
+# INFO [2024-02-03 00:13:27 +0700] PID-27604 TID-ahs : [de764b3a-36ed-479f-84fb-ad5198ba144f] Started GET "/" for ::1 at 2024-02-03 00:13:27 +0700
+# 
+# ab -n 40 -c 20 http://localhost:3000/
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-aic : [ba898fa2-1884-467a-9256-2d37851b82c1] Started GET "/" for 127.0.0.1 at 2024-02-03 00:16:09 +0700
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ahs : [cccf6b21-cfb6-4fb9-b8b7-262f9d2d32b2] Started GET "/" for 127.0.0.1 at 2024-02-03 00:16:09 +0700
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ak0 : [85f6cb4b-3310-4784-bdc1-771c7e49595e] Processing by Rails::WelcomeController#index as */*
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ak0 : [85f6cb4b-3310-4784-bdc1-771c7e49595e]   Rendered /home/hung/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ak0 : [85f6cb4b-3310-4784-bdc1-771c7e49595e] Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 351)
+
+
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ajg : [d201c470-e23a-4c27-a227-8f859e35eff5] Started GET "/" for 127.0.0.1 at 2024-02-03 00:16:09 +0700
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-aic : [ba898fa2-1884-467a-9256-2d37851b82c1] Processing by Rails::WelcomeController#index as */*
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-aic : [ba898fa2-1884-467a-9256-2d37851b82c1]   Rendered /home/hung/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-aic : [ba898fa2-1884-467a-9256-2d37851b82c1] Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 324)
+
+
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-aiw : [e688bfc0-b576-4a4f-804c-885d604cd1ea] Started GET "/" for 127.0.0.1 at 2024-02-03 00:16:09 +0700
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ahs : [cccf6b21-cfb6-4fb9-b8b7-262f9d2d32b2] Processing by Rails::WelcomeController#index as */*
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ahs : [cccf6b21-cfb6-4fb9-b8b7-262f9d2d32b2]   Rendered /home/hung/.rbenv/versions/3.0.4/lib/ruby/gems/3.0.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 15)
+# INFO [2024-02-03 00:16:09 +0700] PID-27604 TID-ahs : [cccf6b21-cfb6-4fb9-b8b7-262f9d2d32b2] Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 310)
+
+
+# rails s
+# GET http://localhost:3000/greetings/hello
+# HTML:
+# Greetings#hello
+# Find me in app/views/greetings/hello.html.erb
+#
+# #<GreetingsController:0x00007f94dc847560> 90f7158e-68bb-4ca5-8bb5-c953952d727
+
+# GET http://localhost:3000/greetings/hello
+# HTML:
+# Greetings#hello
+# Find me in app/views/greetings/hello.html.erb
+#
+# # <GreetingsController:0x00007f94dcbc1f60> 63c1f5d3-dd45-4286-b667-dd9308213543
+
+# tạo new_instance_controller/request:
+# INFO [2024-02-06 15:03:49 +0700] PID-44474 TID-aic : [8b0aeda8-51f0-415e-afd8-7cac40bda705] Started GET "/greetings/hello" for 127.0.0.1 at 2024-02-06 15:03:49 +0700
+# create new instance
+
+# INFO [2024-02-06 15:04:22 +0700] PID-44474 TID-ajg : [5032df71-fd76-4726-8d2c-38cdbabed1d2] Started GET "/greetings/hello" for 127.0.0.1 at 2024-02-06 15:04:22 +0700
+# create new instance
