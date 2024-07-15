@@ -1,0 +1,19 @@
+### Request 1
+POST http://localhost:3000/bookings?die=true
+Content-type: application/json
+
+{
+  "flight_id": 187662,
+  "seat_no": "10C",
+  "passenger_id": "4030 855525"
+}
+
+### Request 2
+POST http://localhost:3000/bookings
+Content-type: application/json
+
+{
+  "flight_id": 187662,
+  "seat_no": "10C",
+  "passenger_id": "4030 855525"
+}

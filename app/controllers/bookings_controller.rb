@@ -10,11 +10,15 @@ class BookingsController < ApplicationController
     seat_no = params[:seat_no]
     
     resource_key = "booking:#{flight_id}_#{seat_no}"
-    ttl = 3600 # 1 hour
+    ttl = 11 # 11 s
     
+    # ?Pessimistic lock
     if acquire_lock(resource_key, ttl)
       # @booking = Booking.new(booking_params)
       # @booking.save
+      if params[:die] # có thể lỗi trong quá trình => tự unlock sau TTL
+        return render json: {success: false, message: "internal_server_error"}, status: 500
+      end
       sleep 10 # 10s
       release_lock(resource_key)
       return render json: {
