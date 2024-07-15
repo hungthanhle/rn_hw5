@@ -3,6 +3,11 @@ class BookingsController < ApplicationController
   include BookingsHelper
 
   def create
-    render json: {success: true, data: params.permit!.to_h}
+    $redis.set("key", "value", ex: 10) #10s
+    render json: {success: true, data: booking_params.permit!.to_h}
+  end
+
+  def booking_params
+    params.permit(:flight_id, :seat_no, :passenger_id)
   end
 end
